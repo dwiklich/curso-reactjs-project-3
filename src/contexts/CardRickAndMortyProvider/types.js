@@ -1,0 +1,3 @@
+export const CARD_API_LOADING = 'CARD_API_LOADING';
+export const CARD_API_SUCCESS = 'CARD_API_SUCCESS';
+export const CARD_API_ERROR = 'POSTS_ERROR';

@@ -6,9 +6,7 @@ import App from './templates/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PostsPlaceholderProvider>
-      <App />
-    </PostsPlaceholderProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 );

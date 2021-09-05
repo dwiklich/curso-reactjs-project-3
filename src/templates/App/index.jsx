@@ -1,58 +1,40 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { ButtonPage } from '../../components/ButtonPage';
+import { PostsRick } from '../../components/PostsApiRick';
+import { PostsPlaceHolder } from '../../components/PostsPlaceholder';
 import { loadCardApi } from '../../contexts/CardRickAndMortyProvider/actions';
 import { CardRickAndMortyContext } from '../../contexts/CardRickAndMortyProvider/context';
+import { CounterProvider } from '../../contexts/CounterProvider';
+import { PostsPlaceholderProvider } from '../../contexts/PostsPlaceholderProvider';
 
 import { loadPosts } from '../../contexts/PostsPlaceholderProvider/actions';
 import { PostsContext } from '../../contexts/PostsPlaceholderProvider/context';
 import { data } from '../../contexts/PostsPlaceholderProvider/data';
+import { Home } from '../Home';
 import './styles.css';
 
 function App() {
-  const isMounted = useRef(true);
-  const context = useContext(PostsContext);
-  const { postsState, postsDispatch } = context;
+  const [valueButton, setValueButton] = useState('');
 
-  const contextAPi = useContext(CardRickAndMortyContext);
-  const { apiState, apiDispatch } = CardRickAndMortyContext;
+  useEffect(() => {}, [valueButton]);
 
-  // useEffect(() => {
-  //   loadCardApi(apiDispatch);
-  // });
-
-  useEffect(() => {
-    loadPosts(postsDispatch).then((dispatch) => {
-      if (isMounted.current) {
-        dispatch();
-      }
-    });
-
-    return () => {
-      isMounted.current = false;
-    };
-  }, [postsDispatch]);
+  const handleClick = useCallback((value) => {
+    setValueButton(value);
+  }, []);
 
   return (
-    // <PostsProvider>
     <div className="App">
-      <h1>Hello</h1>
-      <h1>123</h1>
-      <button
-        onClick={() => {
-          setTimeout(() => {
-            console.log(context);
-          }, 2000);
-        }}
-      >
-        Click-me
-      </button>
-      <div className="PostsApiRick"></div>
-      <div className="PostsPlaceHolder">
-        {!!postsState.loading && <p>Carregando posts</p>}
-        {!postsState.loading && postsState.posts.map((p) => <p key={p.id}>{p.title}</p>)}
-        {!postsState.loading && postsState.posts <= 0 && <p>Não há posts</p>}
-      </div>
+      <ButtonPage onClick={handleClick} />
+      {valueButton === 'API RICK AND MORTY' && <PostsRick />}
+      {valueButton === 'API PLACEHOLDER: PAGE POR POST' && <Home />}
+      {valueButton === 'API PLACEHOLDER: ALL POSTS' && (
+        <CounterProvider>
+          <PostsPlaceholderProvider>
+            <PostsPlaceHolder />
+          </PostsPlaceholderProvider>
+        </CounterProvider>
+      )}
     </div>
-    // </PostsProvider>
   );
 }
 

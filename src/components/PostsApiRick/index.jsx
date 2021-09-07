@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
-import { useAsync } from '../../templates/Home/use-async';
+import { useAsync } from '../../Hooks/use-async';
 import './styles.css';
 
 const fetchData = async () => {
@@ -12,10 +12,10 @@ const fetchData = async () => {
 };
 
 export const PostsRick = () => {
-  const [counterState, setCounterState] = useState(0);
-  const [inputState, setInputState] = useState(0);
-  const [posts, setPosts] = useState(null);
-  const [reFetchData, result, error, status] = useAsync(fetchData, true);
+  // const [counterState, setCounterState] = useState(0);
+  // const [inputState, setInputState] = useState(0);
+  // const [posts, setPosts] = useState(null);
+  const [/* reFetchData, */ result, error, status] = useAsync(fetchData, true);
 
   //...
 

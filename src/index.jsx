@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { PostsPlaceholderProvider } from './contexts/PostsPlaceholderProvider';
+// import { PostsPlaceholderProvider } from './contexts/PostsPlaceholderProvider';
 import './index.css';
 import App from './templates/App';
 

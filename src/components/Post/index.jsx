@@ -1,7 +1,7 @@
 import P from 'prop-types';
 import { useEffect, useState } from 'react';
 
-import { useFetch } from '../../templates/Home/use-fetch';
+import { useFetch } from '../../Hooks/use-fetch';
 
 export const Post = ({ pageRender }) => {
   const [postId, setPostId] = useState(null);

@@ -1,10 +1,11 @@
-import { useContext, useReducer } from 'react';
+// import { useContext, useReducer } from 'react';
 import P from 'prop-types';
+import { useReducer } from 'react';
 
 import { PostsContext } from './context';
 import { data } from './data';
 import { reducer } from './reducer';
-import { loadPosts } from './actions';
+// import { loadPosts } from './actions';
 
 export const PostsPlaceholderProvider = ({ children }) => {
   const [postsState, postsDispatch] = useReducer(reducer, data);

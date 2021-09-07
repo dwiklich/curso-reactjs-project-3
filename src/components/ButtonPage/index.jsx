@@ -1,18 +1,19 @@
 import P from 'prop-types';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+// import { useEffect, useState } from 'react';
 
 export const ButtonPage = ({ onClick }) => {
-  const [valueButton, setValueButton] = useState(null);
+  // const [valueButton, setValueButton] = useState(null);
   const inputApiRick = useRef();
   const inputApiPlaceholderOnePost = useRef();
   const inputApiPlaceholderAllPosts = useRef();
   const useEffectButton = useRef();
 
-  useEffect(() => {
-    setValueButton('1');
-  }, []);
+  // useEffect(() => {
+  //   setValueButton('1');
+  // }, []);
 
-  const handleClick = (value) => {};
+  // const handleClick = (value) => {};
 
   return (
     <div className="button-render">

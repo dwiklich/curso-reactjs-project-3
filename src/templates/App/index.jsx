@@ -4,6 +4,7 @@ import { ButtonPage } from '../../components/ButtonPage';
 import { PostPlaceholder } from '../../components/PostPlaceholder';
 import { PostsRick } from '../../components/PostsApiRick';
 import { PostsPlaceHolder } from '../../components/PostsPlaceholder';
+import { ReactHooksParent } from '../../components/ReactHooksParent';
 import { UseLayoutEffectComponent } from '../../components/UseLayoutEffectComponent';
 import { CounterProvider } from '../../contexts/CounterProvider';
 import { PostsPlaceholderProvider } from '../../contexts/PostsPlaceholderProvider';
@@ -28,7 +29,9 @@ function App() {
 
   return (
     <div className="App">
-      <Home />
+      <Home>
+        <ReactHooksParent />
+      </Home>
       <ButtonPage onClick={handleClick} />
       {valueButton === 'API RICK AND MORTY' && <PostsRick />}
       {valueButton === 'API PLACEHOLDER: PAGE POR POST' && <PostPlaceholder />}

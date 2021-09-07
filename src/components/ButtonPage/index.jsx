@@ -8,6 +8,7 @@ export const ButtonPage = ({ onClick }) => {
   const inputApiPlaceholderOnePost = useRef();
   const inputApiPlaceholderAllPosts = useRef();
   const useEffectButton = useRef();
+  const errorBoundaries = useRef();
 
   // useEffect(() => {
   //   setValueButton('1');
@@ -21,8 +22,9 @@ export const ButtonPage = ({ onClick }) => {
       <button
         ref={inputApiRick}
         type="submit"
+        id={'inputApiRick'}
         onClick={() => {
-          onClick(inputApiRick.current.innerText);
+          onClick(inputApiRick.current.id);
         }}
       >
         API RICK AND MORTY
@@ -30,8 +32,9 @@ export const ButtonPage = ({ onClick }) => {
       <button
         ref={inputApiPlaceholderOnePost}
         type="submit"
+        id={'inputApiPlaceholderOnePost'}
         onClick={() => {
-          onClick(inputApiPlaceholderOnePost.current.innerText);
+          onClick(inputApiPlaceholderOnePost.current.id);
         }}
       >
         API PLACEHOLDER: PAGE POR POST
@@ -39,8 +42,9 @@ export const ButtonPage = ({ onClick }) => {
       <button
         ref={inputApiPlaceholderAllPosts}
         type="submit"
+        id={'inputApiPlaceholderAllPosts'}
         onClick={() => {
-          onClick(inputApiPlaceholderAllPosts.current.innerText);
+          onClick(inputApiPlaceholderAllPosts.current.id);
         }}
       >
         API PLACEHOLDER: ALL POSTS
@@ -48,11 +52,23 @@ export const ButtonPage = ({ onClick }) => {
       <button
         ref={useEffectButton}
         type="submit"
+        id={'useEffectButton'}
         onClick={() => {
-          onClick(useEffectButton.current.innerText);
+          onClick(useEffectButton.current.id);
         }}
       >
         UseLayoutEffectComponent
+      </button>
+      <button
+        ref={errorBoundaries}
+        type="submit"
+        id={'errorBoundaries'}
+        onClick={() => {
+          onClick(errorBoundaries.current.id);
+        }}
+        style={{ background: 'red' }}
+      >
+        Error Boundaries
       </button>
     </div>
   );

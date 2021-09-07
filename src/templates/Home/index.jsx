@@ -1,5 +1,7 @@
 import P from 'prop-types';
+
 import { useMediaQuery } from '../../Hooks/useMediaQuery';
+import './styles.css';
 
 export const Home = ({ children }) => {
   const huge = useMediaQuery('(min-width: 980px)');
@@ -14,7 +16,19 @@ export const Home = ({ children }) => {
   return (
     <div className={'home'} style={{ background, fontSize }}>
       <h1> Home </h1>
-      <p>Largura da tela: {console.log(huge)}</p>
+      <p>
+        Largura do Layout:{' '}
+        {huge
+          ? '(min-width: 980px)'
+          : big
+          ? '(max-width: 979px) and (min-width: 768px)'
+          : medium
+          ? '(max-width: 767px) and (min-width: 321px)'
+          : small
+          ? '(max-width:320px)'
+          : ''}
+      </p>
+      <p className="hook-ordem-execucao"></p>
       <h2> Ordem de execução dos Hooks abaixo</h2>
       {children}
     </div>

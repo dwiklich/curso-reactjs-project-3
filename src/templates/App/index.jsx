@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState /* ,useRef, useContext*/ } from 'react';
 
 import { ButtonPage } from '../../components/ButtonPage';
+import { ErrorBoundary } from '../../components/ErrorBoundary';
+import { ItWillThrowError } from '../../components/ItWillThrowError';
 import { PostPlaceholder } from '../../components/PostPlaceholder';
 import { PostsRick } from '../../components/PostsApiRick';
 import { PostsPlaceHolder } from '../../components/PostsPlaceholder';
@@ -33,16 +35,36 @@ function App() {
         <ReactHooksParent />
       </Home>
       <ButtonPage onClick={handleClick} />
-      {valueButton === 'API RICK AND MORTY' && <PostsRick />}
-      {valueButton === 'API PLACEHOLDER: PAGE POR POST' && <PostPlaceholder />}
-      {valueButton === 'API PLACEHOLDER: ALL POSTS' && (
+      {valueButton === 'inputApiRick' && <PostsRick />}
+      {valueButton === 'inputApiPlaceholderOnePost' && <PostPlaceholder />}
+      {valueButton === 'inputApiPlaceholderAllPosts' && (
         <CounterProvider>
           <PostsPlaceholderProvider>
             <PostsPlaceHolder />
           </PostsPlaceholderProvider>
         </CounterProvider>
       )}
-      {valueButton === 'UseLayoutEffectComponent' && <UseLayoutEffectComponent />}
+
+      {valueButton === 'useEffectButton' && <UseLayoutEffectComponent />}
+      {valueButton === 'errorBoundaries' && (
+        <>
+          <ErrorBoundary>
+            <ItWillThrowError />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <ItWillThrowError />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <ItWillThrowError />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <ItWillThrowError />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <ItWillThrowError />
+          </ErrorBoundary>
+        </>
+      )}
     </div>
   );
 }

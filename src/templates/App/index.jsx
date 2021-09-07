@@ -2,6 +2,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { ButtonPage } from '../../components/ButtonPage';
 import { PostsRick } from '../../components/PostsApiRick';
 import { PostsPlaceHolder } from '../../components/PostsPlaceholder';
+import { UseLayoutEffectComponent } from '../../components/UseLayoutEffectComponent';
 import { loadCardApi } from '../../contexts/CardRickAndMortyProvider/actions';
 import { CardRickAndMortyContext } from '../../contexts/CardRickAndMortyProvider/context';
 import { CounterProvider } from '../../contexts/CounterProvider';
@@ -34,6 +35,7 @@ function App() {
           </PostsPlaceholderProvider>
         </CounterProvider>
       )}
+      {valueButton === 'UseLayoutEffectComponent' && <UseLayoutEffectComponent />}
     </div>
   );
 }

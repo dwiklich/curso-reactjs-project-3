@@ -6,6 +6,7 @@ export const ButtonPage = ({ onClick }) => {
   const inputApiRick = useRef();
   const inputApiPlaceholderOnePost = useRef();
   const inputApiPlaceholderAllPosts = useRef();
+  const useEffectButton = useRef();
 
   useEffect(() => {
     setValueButton('1');
@@ -42,6 +43,15 @@ export const ButtonPage = ({ onClick }) => {
         }}
       >
         API PLACEHOLDER: ALL POSTS
+      </button>
+      <button
+        ref={useEffectButton}
+        type="submit"
+        onClick={() => {
+          onClick(useEffectButton.current.innerText);
+        }}
+      >
+        UseLayoutEffectComponent
       </button>
     </div>
   );

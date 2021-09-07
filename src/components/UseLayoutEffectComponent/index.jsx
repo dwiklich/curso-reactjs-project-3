@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { CountedList } from '../CountedList';
 
 export const UseLayoutEffectComponent = () => {
   const [counted, setCounted] = useState([0, 1, 2, 3, 4, 5, 'ola']);
@@ -11,16 +12,20 @@ export const UseLayoutEffectComponent = () => {
   //   }
   //   if (!isNaN(valueInput)) return null;
   // };
+  useEffect(() => {
+    console.log(counted);
+  }, [counted]);
 
   useLayoutEffect(() => {
     const now = Date.now();
     while (Date.now() < now + 600);
-    divRef.current.scrollTop = divRef.current.scrollHeight;
+    divRef.current.divRef.scrollTop = divRef.current.divRef.scrollHeight;
   });
 
   const handleCLick = () => {
     setCounted((prevState) => [...prevState, input.current.value]);
-    console.log(counted);
+    console.log(divRef.current);
+    divRef.current.handleClick();
   }; //
 
   return (
@@ -30,17 +35,7 @@ export const UseLayoutEffectComponent = () => {
         <input ref={input} type="text" name="counter-input" id="counter-insertion" />
         <button onClick={handleCLick}>Enviar</button>
       </label>
-      <div
-        ref={divRef}
-        className="counter-list"
-        style={{ height: '200px', width: '200px', overflowY: 'scroll', margin: '0 auto' }}
-      >
-        <ul className="counted">
-          {counted.map((counter, index) => {
-            return <li key={index}>{counter}</li>;
-          })}
-        </ul>
-      </div>
+      <CountedList ref={divRef} counted={counted} />
     </>
   );
 };

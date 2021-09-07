@@ -4,7 +4,10 @@ import { useEffect, useState } from 'react';
 import { useFetch } from '../../Hooks/use-fetch';
 
 export const Post = ({ pageRender }) => {
-  const [postId, setPostId] = useState(null);
+  const [postId, setPostId] = useState(() => {
+    null;
+    console.log('Iniciou');
+  });
   const [post, loading] = useFetch('https://jsonplaceholder.typicode.com/posts/' + postId, {
     headers: {
       abc: '1' + postId,
@@ -17,8 +20,9 @@ export const Post = ({ pageRender }) => {
 
   if (loading) {
     console.log('aaa');
-    return <p>Loading...</p>;
+    return <p>DESENHANDO.</p>;
   }
+  console.log('useEFFECT agora');
 
   const handleClick = (id) => {
     setPostId(id);

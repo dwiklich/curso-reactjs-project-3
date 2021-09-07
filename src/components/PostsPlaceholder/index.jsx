@@ -11,8 +11,8 @@ export const PostsPlaceHolder = () => {
   const contextPosts = useContext(PostsContext);
   const { postsState, postsDispatch } = contextPosts;
 
-  const contextCunter = useContext(CounterContext);
-  const { counterState, counterDispatch } = contextCunter;
+  const contextCounter = useContext(CounterContext);
+  const { counterState, counterDispatch } = contextCounter;
 
   useEffect(() => {
     loadPosts(postsDispatch).then((dispatch) => {

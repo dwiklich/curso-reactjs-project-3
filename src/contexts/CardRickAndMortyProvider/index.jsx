@@ -1,5 +1,5 @@
 import P from 'prop-types';
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 
 import { CardRickAndMortyContext } from './context';
 import { data } from './data';

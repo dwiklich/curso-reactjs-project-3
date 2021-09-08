@@ -4,11 +4,11 @@ import { useAsync } from '../../Hooks/use-async';
 import './styles.css';
 
 const fetchData = async () => {
-  throw new Error('Deu erro');
-  // await new Promise((r) => setTimeout(r, 2000));
-  // const data = await fetch('https://jsonplaceholder.typicode.com/posts');
-  // const json = data.json();
-  // return json;
+  // throw new Error('Deu erro');
+  await new Promise((r) => setTimeout(r, 2000));
+  const data = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const json = data.json();
+  return json;
 };
 
 export const PostsRick = () => {
